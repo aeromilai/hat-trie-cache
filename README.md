@@ -1,6 +1,6 @@
-# hat-trie-cache
+# NOT FUNCTIONAL, PLS IGNORE. SORRY FOR MIS PUBLISHING.
 
-A Rust implementation of a HAT-trie based cache.
+under testing.
 
 ## Usage
 
