@@ -7,10 +7,15 @@ pub struct HatTrieCache {
 }
 
 impl HatTrieCache {
-    pub fn new() -> Self {
+    pub fn new(capacity: usize) -> Self {
         Self {
-            cache: Arc::new(RwLock::new(Cache::new(1000))), // Default size of 1000 entries
+            cache: Arc::new(RwLock::new(Cache::new(capacity))),
         }
+    }
+
+    /// Creates a new HatTrieCache with default capacity of 1000 entries
+    pub fn default() -> Self {
+        Self::new(1000)
     }
 
     pub fn insert(&self, key: &str, value: &str) {
@@ -32,7 +37,7 @@ mod tests {
 
     #[test]
     fn test_basic_operations() {
-        let cache = HatTrieCache::new();
+        let cache = HatTrieCache::default();
         
         cache.insert("test", "value");
         assert_eq!(cache.get("test"), Some("value".to_string()));

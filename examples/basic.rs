@@ -1,8 +1,8 @@
 use hat_trie_cache::HatTrieCache;
 
 fn main() {
-    // Create a new HAT-trie cache
-    let cache = HatTrieCache::new();
+    // Create a new HAT-trie cache with capacity of 100 entries
+    let cache = HatTrieCache::new(100);
     
     // Insert some key-value pairs
     cache.insert("hello", "world");
