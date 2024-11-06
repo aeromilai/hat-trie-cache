@@ -18,11 +18,11 @@ impl HatTrieCache {
     }
 
     pub fn get(&self, key: &str) -> Option<String> {
-        self.cache.read().get(&key.to_string()).cloned()
+        self.cache.read().get(&key.to_string()).map(|s| s.clone())
     }
 
     pub fn contains_key(&self, key: &str) -> bool {
-        self.cache.read().contains_key(&key.to_string())
+        self.cache.read().get(&key.to_string()).is_some()
     }
 }
 
